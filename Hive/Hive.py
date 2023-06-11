@@ -146,7 +146,7 @@ class BeeHive(object):
             if self.verbose:
                 self._verbose(itr, cost)
 
-        return cost
+        return cost, self.solution
 
     def __init__(self                 ,
                  lower, upper         ,
