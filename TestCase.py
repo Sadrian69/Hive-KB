@@ -17,6 +17,7 @@ from Hive import Hive
 stack = []
 
 # edit yang ini
+# 5x10
 stack.append(['F1', 'E1', 'D1', 'C1', 'B1', 'A1'])  #1
 stack.append(['J1', 'I1', 'H1'])                    #2
 stack.append(['A2', 'A3', 'A4', 'A5'])              #3
