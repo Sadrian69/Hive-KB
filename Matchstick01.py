@@ -15,6 +15,8 @@ from Hive import Hive
 # ---- CREATE TEST CASE
 
 stack = []
+
+# edit yang ini
 stack.append(['B6', 'C6', 'D6', 'E6', 'F6'])  
 stack.append(['B5', 'B4', 'B3', 'B2'])        
 stack.append(['F5', 'E5', 'D5', 'C5'])        
@@ -29,6 +31,7 @@ stack.append(['F1', 'E1', 'D1', 'C1', 'B1'])
 
 rCounts = ([3,4,2,3,4,3])
 cCounts = ([3,3,3,4,3,3])
+# jangan edit yang lain
 
 stackArray = []
 lowerBound = []
