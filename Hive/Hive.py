@@ -81,7 +81,7 @@ class Bee(object):
 
         self.vector = []
         for i in range(len(lower)):
-            self.vector.append( lower[i] + random.random() * (upper[i] - lower[i]) )
+            self.vector.append(round(lower[i] + random.random() * (upper[i] - lower[i])) ) # coba di round (bulatin)
 
     def _fitness(self):
         """
@@ -91,7 +91,7 @@ class Bee(object):
         The fitness is a measure of the quality of a solution.
 
         """
-
+        # ini kan dia bagi makanya bisa koma berati perlu di buat int  (kenapa abs karena korek api bisa kelebihan maupun kurang)
         if (self.value >= 0):
             self.fitness = 1 / (1 + self.value)
         else:
@@ -140,7 +140,7 @@ class BeeHive(object):
 
             # stores convergence information
             cost["best"].append( self.best )
-            cost["mean"].append( sum( [ bee.value for bee in self.population ] ) / self.size )
+            cost["mean"].append((sum( [ bee.value for bee in self.population ] ) / self.size) )
 
             # prints out information about computation
             if self.verbose:
@@ -151,8 +151,8 @@ class BeeHive(object):
     def __init__(self                 ,
                  lower, upper         ,
                  fun          = None  ,
-                 numb_bees    =  30   ,
-                 max_itrs     = 100   ,
+                 numb_bees    = 100   ,
+                 max_itrs     = 200   ,
                  max_trials   = None  ,
                  selfun       = None  ,
                  seed         = None  ,
@@ -213,7 +213,7 @@ class BeeHive(object):
         self.upper    = upper
 
         # initialises current best and its a solution vector
-        self.best = sys.float_info.max
+        self.best =round(sys.maxsize) # buat interger besar
         self.solution = None
 
         # creates a bee hive
@@ -230,12 +230,16 @@ class BeeHive(object):
 
     def find_best(self):
         """ Finds current best bee candidate. """
-
-        values = [ bee.value for bee in self.population ]
+        values = [bee.value for bee in self.population ]
         index  = values.index(min(values))
         if (values[index] < self.best):
             self.best     = values[index]
             self.solution = self.population[index].vector
+            print('index baru : ' , index)
+            print('hasil : ' , self.solution)
+            print('fitness : ', self.best)
+            print()
+            
 
     def compute_probability(self):
         """
@@ -247,7 +251,7 @@ class BeeHive(object):
         """
 
         # retrieves fitness of bees within the hive
-        values = [bee.fitness for bee in self.population]
+        values = [bee.fitness for bee in self.population] # inikan cek fitness nya
         max_values = max(values)
 
         # computes probalities the way Karaboga does in his classic ABC implementation
@@ -283,14 +287,14 @@ class BeeHive(object):
         d = random.randint(0, self.dim-1)
 
         # selects another bee
-        bee_ix = index;
+        bee_ix = index
         while (bee_ix == index): bee_ix = random.randint(0, self.size-1)
 
-        # produces a mutant based on current bee and bee's friend
-        zombee.vector[d] = self._mutate(d, index, bee_ix)
+        # produces a mutant based on current bee and bee's friend (karena mutasi korek dan jumlah yang dibakar dapat berubah) menghindari local search
+        zombee.vector[d] = round(self._mutate(d, index, bee_ix)) # ini juga dianggap di bulatin 
 
         # checks boundaries
-        zombee.vector = self._check(zombee.vector, dim=d)
+        zombee.vector = (self._check(zombee.vector, dim=d))
 
         # computes fitness of mutant
         zombee.value = self.evaluate(zombee.vector)
@@ -430,6 +434,7 @@ class BeeHive(object):
         return self.population[current_bee].vector[dim]    + \
                (random.random() - 0.5) * 2                 * \
                (self.population[current_bee].vector[dim] - self.population[other_bee].vector[dim])
+    
 
     def _check(self, vector, dim=None):
         """
