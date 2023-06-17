@@ -91,7 +91,6 @@ class Bee(object):
         The fitness is a measure of the quality of a solution.
 
         """
-        # ini kan dia bagi makanya bisa koma berati perlu di buat int  (kenapa abs karena korek api bisa kelebihan maupun kurang)
         if (self.value >= 0):
             self.fitness = 1 / (1 + self.value)
         else:
