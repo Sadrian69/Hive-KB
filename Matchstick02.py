@@ -26,7 +26,7 @@ stack.append(['H2', 'H3', 'H4'])                    #5
 stack.append(['J2', 'J3', 'J4'])                    #6
 stack.append(['C3', 'C4', 'C5'])                    #7
 stack.append(['F3', 'F4'])                          #8
-stack.append(['E3', 'E4'])                          #9
+stack.append(['E4', 'E3'])                          #9
 stack.append(['G4', 'G3', 'G2', 'G1'])              #10
 stack.append(['I4', 'I3', 'I2'])                    #11
 stack.append(['B5', 'B4', 'B3', 'B2'])              #12
