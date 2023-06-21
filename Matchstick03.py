@@ -17,24 +17,25 @@ from Hive import Hive
 stack = []
 
 # edit yang ini
-# 5x10
-stack.append(['F1', 'E1', 'D1', 'C1', 'B1', 'A1'])  #1
-stack.append(['J1', 'I1', 'H1'])                    #2
-stack.append(['A2', 'A3', 'A4', 'A5'])              #3
-stack.append(['C2', 'D2', 'E2', 'F2'])              #4    
-stack.append(['H2', 'H3', 'H4'])                    #5
-stack.append(['J2', 'J3', 'J4'])                    #6
-stack.append(['C3', 'C4', 'C5'])                    #7
-stack.append(['F3', 'F4'])                          #8
-stack.append(['E4', 'E3'])                          #9
-stack.append(['G4', 'G3', 'G2', 'G1'])              #10
-stack.append(['I4', 'I3', 'I2'])                    #11
-stack.append(['B5', 'B4', 'B3', 'B2'])              #12
-stack.append(['D5', 'D4', 'D3'])                    #13
-stack.append(['J5', 'I5', 'H5', 'G5', 'F5', 'E5'])  #14
+# 6x7
+stack.append(['D1', 'C1', 'B1', 'A1'])  #1
+stack.append(['E1', 'E2', 'E3'])        #2
+stack.append(['F1', 'F2'])              #3
+stack.append(['D2', 'C2', 'B2'])        #4    
+stack.append(['A3', 'A2'])              #5
+stack.append(['B3', 'C3', 'D3'])        #6
+stack.append(['F3', 'F4'])              #7
+stack.append(['A4', 'B4'])              #8
+stack.append(['E4', 'D3', 'C4'])        #9
+stack.append(['G4', 'G3', 'G2'])        #10
+stack.append(['A5', 'B5', 'C5', 'D5'])  #11
+stack.append(['G5', 'G6'])              #12
+stack.append(['C6', 'B6', 'A6'])        #13
+stack.append(['E6', 'D6'])              #14
+stack.append(['F6', 'F5'])              #15
 
-rCounts = ([2,2,2,5,2,2,2,3,3,4])
-cCounts = ([5,5,7,5,5])
+rCounts = ([3,4,3,4,3,4,3])
+cCounts = ([4,4,6,3,5,4])
 # jangan edit yang lain
 
 stackArray = []
@@ -105,7 +106,7 @@ def run():
 
 if __name__ == "__main__":
     run()
-    # print(evaluator([4,1,2,2,2,2,0,1,1,2,2,2,3,3]))
+    # puzzle yg tidak bisa di solve, nilai minimal objective function = 2
 
 
 # ---- END
