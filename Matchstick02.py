@@ -37,6 +37,14 @@ rCounts = ([2,2,2,5,2,2,2,3,3,4])
 cCounts = ([5,5,7,5,5])
 # jangan edit yang lain
 
+# Meike buat ini buat nge-passing ke GUI
+new_stack = []
+for sublist in stack:
+    if sublist:  # Cek sublist gak kosong
+        first_value = sublist[0]
+        last_value = sublist[-1]
+        new_stack.append((first_value, last_value))
+
 stackArray = []
 lowerBound = []
 upperBound = []
