@@ -136,6 +136,8 @@ class BeeHive(object):
 
             # computes best path
             self.find_best()
+            
+            print(itr+1, ":", self.solution, "=>", self.best)
 
             # stores convergence information
             cost["best"].append( self.best )
@@ -234,15 +236,9 @@ class BeeHive(object):
         if (values[index] < self.best):
             self.best     = values[index]
             self.solution = self.population[index].vector
-            print('index baru : ' , index)
-            print('hasil : ' , self.solution)
-            print('fitness : ', self.best)
-            print()
-            
 
     def compute_probability(self):
         """
-
         Computes the relative chance that a given solution vector is
         chosen by an onlooker bee after the Waggle dance ceremony when
         employed bees are back within the hive.
